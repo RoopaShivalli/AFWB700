@@ -1,3 +1,4 @@
+
 import pytest
 from selenium.webdriver import Chrome
 from selenium.webdriver import Firefox
@@ -7,7 +8,11 @@ from selenium.webdriver import Remote
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from pyjavaproperties import Properties
 
+
+
 class BaseSetup:
+
+
 
     @pytest.fixture(autouse=True)
     def precondition(self):
@@ -69,9 +74,9 @@ class BaseSetup:
         print('Set ETO',eto,'seconds')
         self.wait=WebDriverWait(self.driver,eto)
 
-
     @pytest.fixture(autouse=True)
-    def postcondtion(self):
+    def allure_report(self):
         yield
+
         print('Close the browser')
         self.driver.quit()
